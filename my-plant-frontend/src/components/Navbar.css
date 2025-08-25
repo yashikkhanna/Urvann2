@@ -1,0 +1,126 @@
+/* ==============================
+   Navbar Container
+   ============================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+  background: #ffffff; /* White background */
+  border-bottom: 1px solid #e0e0e0; /* Clean divider instead of heavy shadow */
+  font-family: "Segoe UI", sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ==============================
+   Logo
+   ============================== */
+.navbar-logo a {
+  text-decoration: none;
+  font-size: 26px;
+  font-weight: bold;
+  color: #2e7d32; /* Green brand color */
+  letter-spacing: 1px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar-logo a:hover {
+  transform: scale(1.05);
+  color: #1b5e20; /* Darker green hover */
+}
+
+/* ==============================
+   Promo Line
+   ============================== */
+.navbar-promo {
+  font-size: 15px;
+  font-weight: 500;
+  color: #388e3c; /* Subtle green */
+  flex: 1;
+  text-align: center;
+  animation: blink 3s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { color: #388e3c; }
+  50% { color: #2e7d32; }
+}
+
+/* ==============================
+   Navbar Links
+   ============================== */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li a,
+.navbar-links li .logout-btn {
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  color: #333; /* Neutral text on white */
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar-links li a:hover,
+.navbar-links li .logout-btn:hover {
+  background: #2e7d32; /* Green background */
+  color: #ffffff;       /* White text on hover */
+  transform: translateY(-2px);
+}
+
+/* ==============================
+   Cart
+   ============================== */
+.cart-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cart-count {
+  background-color: #2e7d32; /* Green badge */
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 2px 7px;
+  font-size: 12px;
+  margin-left: 4px;
+  font-weight: bold;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+}
+
+/* ==============================
+   Responsive
+   ============================== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 20px;
+  }
+
+  .navbar-promo {
+    text-align: left;
+    margin-top: 8px;
+    font-size: 14px;
+  }
+
+  .navbar-links {
+    margin-top: 10px;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+}

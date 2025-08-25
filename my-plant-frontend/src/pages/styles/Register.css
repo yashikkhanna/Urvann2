@@ -1,0 +1,137 @@
+.register-page {
+  height: 100vh;
+  width: 100vw;
+  background: url("https://images.unsplash.com/photo-1721372097475-05befa028d59?q=80&w=1170&auto=format&fit=crop") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-form {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(18px);
+  border-radius: 20px;
+  padding: 40px 35px;
+  width: 380px;
+  text-align: center;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.25);
+  animation: fadeInUp 0.9s ease;
+  color: #fff;
+}
+
+.register-form h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.register-subtitle {
+  font-size: 14px;
+  color: #f5f5f5;
+  margin-bottom: 25px;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+.register-form input,
+.register-form select {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transition: 0.3s;
+}
+
+.register-form input::placeholder {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.register-form input:focus,
+.register-form select:focus {
+  box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.6);
+  transform: scale(1.02);
+}
+
+.register-form button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, #43a047, #2e7d32);
+  box-shadow: 0px 4px 15px rgba(67, 160, 71, 0.6);
+  transition: 0.3s;
+}
+
+.register-form button:hover {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 20px rgba(46, 125, 50, 0.8);
+}
+
+.resend-text {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #f0f0f0;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+.resend-link {
+  color: #a5d6a7;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.resend-link:hover {
+  color: #c8e6c9;
+}
+
+.message {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #ffeb3b;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.login-link {
+  margin-top: 18px;
+}
+
+.login-link p {
+  font-size: 14px;
+  color: #f5f5f5;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.6);
+}
+
+.login-link .login-anchor {
+  color: #a5d6a7;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.login-link .login-anchor:hover {
+  color: #c8e6c9;
+}
