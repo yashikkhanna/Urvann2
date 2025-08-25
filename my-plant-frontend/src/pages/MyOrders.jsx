@@ -16,7 +16,7 @@ export default function MyOrders() {
 
     const fetchOrders = async () => {
       try {
-        const { data } = await axios.get("http://localhost:4000/api/v1/orders/my-orders", {
+        const { data } = await axios.get("https://urvann-pfz7.onrender.com//api/v1/orders/my-orders", {
           withCredentials: true,
         });
         setOrders(data.orders);
@@ -45,7 +45,7 @@ export default function MyOrders() {
 
     try {
       await axios.put(
-        `http://localhost:4000/api/v1/orders/${selectedOrder._id}/cancel`,
+        `https://urvann-pfz7.onrender.com//api/v1/orders/${selectedOrder._id}/cancel`,
         {},
         { withCredentials: true }
       );

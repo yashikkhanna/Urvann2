@@ -18,7 +18,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/v1/user/customer/me",
+          "https://urvann-pfz7.onrender.com//api/v1/user/customer/me",
           { withCredentials: true }
         );
         setIsAuthenticated(true);

@@ -31,7 +31,7 @@ const Register = () => {
     setLoading(true);
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/user/register",
+        "https://urvann-pfz7.onrender.com//api/v1/user/register",
         formData,
         { withCredentials: true }
       );
@@ -49,7 +49,7 @@ const Register = () => {
     setLoading(true);
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/user/verify-otp",
+        "https://urvann-pfz7.onrender.com//api/v1/user/verify-otp",
         { email: formData.email, otp },
         { withCredentials: true }
       );
@@ -66,7 +66,7 @@ const Register = () => {
   const handleResendOtp = async () => {
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/user/resend-otp",
+        "https://urvann-pfz7.onrender.com//api/v1/user/resend-otp",
         { email: formData.email },
         { withCredentials: true }
       );
