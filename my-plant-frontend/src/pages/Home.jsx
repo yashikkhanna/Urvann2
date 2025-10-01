@@ -20,7 +20,7 @@ const Home = () => {
         query = `?${params}`;
       }
       const { data } = await axios.get(
-        `https://urvann-pfz7.onrender.com//api/v1/plant/getPlants${query}`,
+        `http://localhost:4000/api/v1/plant/getPlants${query}`,
         { withCredentials: true }
       );
       setPlants(data.plants || []);
@@ -32,12 +32,12 @@ const Home = () => {
   const handleAddToCart = async (plantId) => {
     try {
       await axios.post(
-        "https://urvann-pfz7.onrender.com//api/v1/cart/add",
+        "http://localhost:4000/api/v1/cart/add",
         { plantId, quantity: 1 },
         { withCredentials: true }
       );
       // fetch updated cart
-      const { data } = await axios.get("https://urvann-pfz7.onrender.com//api/v1/cart", { withCredentials: true });
+      const { data } = await axios.get("http://localhost:4000/api/v1/cart", { withCredentials: true });
       setCart({
         items: (data.cart.items || []).map((i) => ({
           plant: i.plant || {},
@@ -53,18 +53,18 @@ const Home = () => {
   const handleUpdateQuantity = async (plantId, quantity) => {
     try {
       if (quantity <= 0) {
-        await axios.delete("https://urvann-pfz7.onrender.com//api/v1/cart/remove", {
+        await axios.delete("http://localhost:4000/api/v1/cart/remove", {
           data: { plantId },
           withCredentials: true,
         });
       } else {
         await axios.put(
-          "https://urvann-pfz7.onrender.com//api/v1/cart/update",
+          "http://localhost:4000/api/v1/cart/update",
           { plantId, quantity },
           { withCredentials: true }
         );
       }
-      const { data } = await axios.get("https://urvann-pfz7.onrender.com//api/v1/cart", { withCredentials: true });
+      const { data } = await axios.get("http://localhost:4000/api/v1/cart", { withCredentials: true });
       setCart({
         items: (data.cart.items || []).map((i) => ({
           plant: i.plant || {},

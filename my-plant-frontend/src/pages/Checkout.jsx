@@ -25,7 +25,7 @@ export default function Checkout() {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const { data } = await axios.get("https://urvann-pfz7.onrender.com//api/v1/cart", {
+        const { data } = await axios.get("http://localhost:4000/api/v1/cart", {
           withCredentials: true,
         });
         setCart(data.cart || { items: [], totalPrice: 0 }); // update global context
@@ -65,7 +65,7 @@ export default function Checkout() {
       };
 
       await axios.post(
-        "https://urvann-pfz7.onrender.com//api/v1/orders/new",
+        "http://localhost:4000/api/v1/orders/new",
         { address: addressPayload, paymentMethod: form.paymentMethod },
         { withCredentials: true }
       );

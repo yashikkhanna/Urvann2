@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "https://urvann-pfz7.onrender.com//api/v1/user/login",
+        "http://localhost:4000/api/v1/user/login",
         { email, password, role: "Customer" },
         { withCredentials: true }
       );

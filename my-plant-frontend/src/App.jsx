@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import axios from "axios";
@@ -18,7 +18,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "https://urvann-pfz7.onrender.com//api/v1/user/customer/me",
+          "http://localhost:4000/api/v1/user/customer/me",
           { withCredentials: true }
         );
         setIsAuthenticated(true);

@@ -16,7 +16,7 @@ const Navbar = () => {
   // Fetch full cart
   const fetchCart = async () => {
     try {
-      const { data } = await axios.get("https://urvann-pfz7.onrender.com//api/v1/cart", {
+      const { data } = await axios.get("http://localhost:4000/api/v1/cart", {
         withCredentials: true,
       });
       setCart({
@@ -43,7 +43,7 @@ const Navbar = () => {
         return;
       }
       await axios.put(
-        "https://urvann-pfz7.onrender.com//api/v1/cart/update",
+        "http://localhost:4000/api/v1/cart/update",
         { plantId, quantity },
         { withCredentials: true }
       );
@@ -57,7 +57,7 @@ const Navbar = () => {
     if (!plantId) return;
     try {
       await axios.delete(
-        "https://urvann-pfz7.onrender.com//api/v1/cart/remove",
+        "http://localhost:4000/api/v1/cart/remove",
         { data: { plantId }, withCredentials: true }
       );
       await fetchCart(); // update global cart
@@ -69,7 +69,7 @@ const Navbar = () => {
 
   const handleClearCart = async () => {
     try {
-      await axios.delete("https://urvann-pfz7.onrender.com//api/v1/cart/clear", { withCredentials: true });
+      await axios.delete("http://localhost:4000/api/v1/cart/clear", { withCredentials: true });
       setCart({ items: [] });
       toast.success("Cart cleared 🌿");
     } catch (err) {
