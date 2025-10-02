@@ -12,11 +12,33 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const [cartOpen, setCartOpen] = useState(false);
+  // handle logout
+  const handleLogout = async () => {
+  try {
+    await axios.post(
+      "https://urvann2.onrender.com/api/v1/user/customer/logout",
+      {}, // body is empty
+      { withCredentials: true }
+    );
+
+    // ✅ Clear auth + cart state
+    setIsAuthenticated(false);
+    setCart({ items: [] });
+
+    // ✅ Redirect to homepage (or login page)
+    navigate("/");
+
+    toast.success("Logged out successfully 🌿");
+  } catch (err) {
+    toast.error("Failed to log out");
+  }
+};
+
 
   // Fetch full cart
   const fetchCart = async () => {
     try {
-      const { data } = await axios.get("http://localhost:4000/api/v1/cart", {
+      const { data } = await axios.get("https://urvann2.onrender.com/api/v1/cart", {
         withCredentials: true,
       });
       setCart({
@@ -43,7 +65,7 @@ const Navbar = () => {
         return;
       }
       await axios.put(
-        "http://localhost:4000/api/v1/cart/update",
+        "https://urvann2.onrender.com/api/v1/cart/update",
         { plantId, quantity },
         { withCredentials: true }
       );
@@ -57,7 +79,7 @@ const Navbar = () => {
     if (!plantId) return;
     try {
       await axios.delete(
-        "http://localhost:4000/api/v1/cart/remove",
+        "https://urvann2.onrender.com/api/v1/cart/remove",
         { data: { plantId }, withCredentials: true }
       );
       await fetchCart(); // update global cart
@@ -69,7 +91,7 @@ const Navbar = () => {
 
   const handleClearCart = async () => {
     try {
-      await axios.delete("http://localhost:4000/api/v1/cart/clear", { withCredentials: true });
+      await axios.delete("https://urvann2.onrender.com/api/v1/cart/clear", { withCredentials: true });
       setCart({ items: [] });
       toast.success("Cart cleared 🌿");
     } catch (err) {
@@ -94,9 +116,7 @@ const Navbar = () => {
     <>
       <li><Link to="/my-orders">My Orders</Link></li>  {/* NEW LINK */}
       <li>
-        <button onClick={() => setIsAuthenticated(false)} className="logout-btn">
-          Logout
-        </button>
+        <button onClick={handleLogout} className="logout-btn">Logout</button>
       </li>
     </>
   ) : (
